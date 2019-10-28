@@ -14,6 +14,7 @@
 * Let's work on reducing arrays, filter them, combine them creatively
 * Let's do some array sorting
 * Separation of data and UI
+* We will cover the following examples: chess board, airbnb, amazon (with inheritance)
 
 +Lab related to operating with a collection movies, sorting, averaging...
 
