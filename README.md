@@ -28,4 +28,5 @@
 Arrays of bubbles with P5
 https://www.youtube.com/watch?v=fBqaA7zRO58
 
+https://lodash.com/docs/4.17.15#flatten
 https://en.wikipedia.org/wiki/Don%27t_repeat_yourself
