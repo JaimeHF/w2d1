@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      * {
+        box-sizing: content-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        font-size: 20px;
+      }
+
+      body {
+        display: flex;
+        justify-content: flex-end;
+        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+      }
+
+      #cart {
+        padding: 2rem;
+        position: relative;
+        background: silver;
+        margin-top: 10rem;
+        max-width: 20rem;
+        width: 100%;
+        text-align: center;
+        margin-right: 2rem;
+      }
+
+      #cart .total-items {
+        background: red;
+        padding: 1rem;
+        border: 1px solid black;
+        position: absolute;
+        right: -1rem;
+        top: -1rem;
+        border-radius: 50%;
+        height: 2rem;
+        width: 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      #add-to-cart {
+        width: 3rem;
+        height: 3rem;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem;
+        font-size: 2rem;
+      }
+    </style>
+  </head>
+  <body>
+    <section id="cart">
+      <h3>My cart <span class="total-items"></span></h3>
+      <ul id="cart-contents"></ul>
+    </section>
+    <button id="add-to-cart">+</button>
+    <script src="index.js"></script>
+  </body>
+</html>
