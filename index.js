@@ -29,7 +29,7 @@ document.querySelector("#add-to-cart").onclick = function() {
 
   updateCartElements();
   displayCartContents();
-};
+},
 
 let cartDOMEl = document.querySelector("#cart");
 
@@ -47,3 +47,5 @@ function displayCartContents() {
 }
 
 cartDOMEl.onclick = displayCartContents;
+
+
