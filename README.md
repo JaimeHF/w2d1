@@ -27,3 +27,5 @@
 
 Arrays of bubbles with P5
 https://www.youtube.com/watch?v=fBqaA7zRO58
+
+https://en.wikipedia.org/wiki/Don%27t_repeat_yourself

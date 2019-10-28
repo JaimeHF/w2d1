@@ -2,9 +2,14 @@ class Product {
   constructor(name, price) {
     if (price < 0) throw new Error("price cannot be negative");
     this.name = name;
-    this.price = Math.round(Math.random() * 500);
+    this.price = price; //Math.round(Math.random() * 500);
   }
 }
+
+// {
+//   name: "roomba hoover",
+//   price: 200
+// }
 
 let productsInCart = [
   new Product("roomba hoover", 200),

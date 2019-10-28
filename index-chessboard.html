@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      * {
+        box-sizing: content-box;
+      }
+
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        font-size: 10px;
+      }
+
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+        height: 100vh;
+      }
+
+      #chessboard {
+        height: 48rem;
+        width: 48rem;
+        display: flex;
+        flex-wrap: wrap;
+        background: silver;
+        border: 5px solid black;
+      }
+
+      .chess-tile {
+        height: 6rem;
+        width: 6rem;
+        /* background: white; */
+      }
+
+      /* .chess-tile:nth-child(2n) {
+          background: black;
+      } */
+    </style>
+  </head>
+  <body>
+    <div id="chessboard"></div>
+
+    <!-- <script src="chess-board.js"></script> -->
+    <script src="chess-board-clean.js"></script>
+  </body>
+</html>
