@@ -26,14 +26,32 @@
         text-decoration: underline;
         cursor: pointer;
       }
+
+      .sort {
+        font-size: 9px;
+        transform: rotate(0deg);
+        transition: transform 0.5s;
+        display: none;
+      }
+
+      .sort.ascending {
+        transform: rotate(180deg);
+        transition: transform 0.5s;
+        display: inline-block;
+      }
+
+      #search {
+        margin-bottom: 20px;
+      }
     </style>
   </head>
   <body>
+    <input id="search" placeholder="search a city" />
     <table id="rooms">
       <thead>
         <tr>
-          <td id="name-sorter">Name</td>
-          <td id="price-sorter">Price</td>
+          <td id="name-sorter">Name <span class="sort">▼</span></td>
+          <td id="price-sorter">Price <span class="sort">▼</span></td>
         </tr>
       </thead>
       <tbody></tbody>
