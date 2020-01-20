@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <link rel="stylesheet" href="reset.css" />
+    <style>
+        table {
+            border-collapse: collapse;
+            border: 10px solid black;
+        }
+
+        table td {
+            height: 100px;
+            width: 100px;
+        }
+
+        table .white {
+            background: white;
+        }
+
+        table .black {
+            background: black;
+        }
+    
+    </style>
+  </head>
+  <body>
+    <table id="chess"></table>
+    <script>
+      // let row1 = Array(8).fill().map((_, idx) => !(idx % 2))
+      // let row2 = Array(8).fill().map((_, idx) => !!(idx % 2))
+
+      let totalColumns = 8;
+      let totalRows = 8;
+
+      let chessBoardDataModel = Array(totalRows)
+        .fill()
+        .map((_, idxMain) => {
+          if (idxMain % 2) {
+            return Array(totalColumns)
+              .fill()
+              .map((_, idx) => idx % 2);
+          } else {
+            return Array(totalColumns)
+              .fill()
+              .map((_, idx) => (idx + 1) % 2);
+          }
+        });
+
+      function paintChessboard(chessDOMSelector, dataModel) {
+        let oneCheckerDOMEl, boardRowDOMEl;
+
+        dataModel.forEach((row, idx) => {
+          boardRowDOMEl = document.createElement("tr");
+
+          row.forEach((column, idxColumn) => {
+            oneCheckerDOMEl = document.createElement("td");
+
+            if (column === 0) {
+                oneCheckerDOMEl.className = "black"
+            }   else {
+                oneCheckerDOMEl.className = "white"
+            }
+
+            oneCheckerDOMEl.onclick = function () {
+                console.log(`clicked! (${idx + 1}, ${idxColumn + 1})`)
+            }
+
+            boardRowDOMEl.appendChild(oneCheckerDOMEl);
+          });
+
+          document.querySelector(chessDOMSelector).appendChild(boardRowDOMEl);
+        });
+      }
+
+      console.log(chessBoardDataModel)
+
+      paintChessboard("#chess", chessBoardDataModel);
+    </script>
+  </body>
+</html>
