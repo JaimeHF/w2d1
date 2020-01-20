@@ -55,28 +55,42 @@
     <h3 id="subtotal"></h3>
 
     <script>
+      function setHandlers() {
+        document.querySelectorAll(".product").forEach(product => {
+          let price, rowSubtotal;
+
+          product.querySelector(".qty input").onchange = function(e) {
+            price = +product.querySelector(".pu span").innerText;
+            rowSubtotal = e.target.value * price;
+            product.querySelector(".subtotal").innerHTML = `${rowSubtotal}$`;
+          };
+        });
+      }
+
+      setHandlers()
+
       document.querySelector("#calc").onclick = function() {
         let price = 0;
         let productPrice, productQty, rowSubtotal;
-        
+
         // let's select all products from the table (they are table rows)
         document.querySelectorAll(".product").forEach(product => {
-            // let's obtain the product price for each line
-            productPrice = +(product.querySelector(".pu span").innerText)
-            // let's get the product quantity specified by the user
-            productQty = product.querySelector(".qty input").value
-            // let's calculate the subtotal for this row, multiplying the price by the amount of items
-            rowSubtotal = productPrice * productQty
-            // let's print out the subtotal for this row
-            // by selecting the subtotal field and adding a $ symbol to the computation
-            product.querySelector(".subtotal").innerHTML = `${rowSubtotal}$`
-            // let's add the row subtotal the final price computation
-            // that will be user later on
-            price += rowSubtotal
+          // let's obtain the product price for each line
+          productPrice = +product.querySelector(".pu span").innerText;
+          // let's get the product quantity specified by the user
+          productQty = product.querySelector(".qty input").value;
+          // let's calculate the subtotal for this row, multiplying the price by the amount of items
+          rowSubtotal = productPrice * productQty;
+          // let's print out the subtotal for this row
+          // by selecting the subtotal field and adding a $ symbol to the computation
+          product.querySelector(".subtotal").innerHTML = `${rowSubtotal}$`;
+          // let's add the row subtotal the final price computation
+          // that will be user later on
+          price += rowSubtotal;
         });
 
         // let's print out the final price computation
-        document.querySelector("#subtotal").innerHTML = `Subtotal: ${price}$`
+        document.querySelector("#subtotal").innerHTML = `Subtotal: ${price}$`;
       };
     </script>
   </body>
