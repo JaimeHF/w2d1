@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      table {
+        border-collapse: collapse;
+      }
+      thead {
+        background: silver;
+      }
+
+      tr,
+      td {
+        border: 1px solid black;
+      }
+
+      td {
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <table>
+      <thead>
+        <tr>
+          <td>Name</td>
+          <td>Price</td>
+          <td>Units</td>
+          <td>Total</td>
+          <td>Operations</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="product">
+          <td>Roomba hoover</td>
+          <td class="pu"><span>200</span>$</td>
+          <td class="qty"><input type="number" value="1" /></td>
+          <td></td>
+          <td><button>Delete</button></td>
+        </tr>
+        <tr class="product">
+          <td>Roomba hoover</td>
+          <td class="pu"><span>300</span>$</td>
+          <td class="qty"><input type="number" value="2" /></td>
+          <td></td>
+          <td><button>Delete</button></td>
+        </tr>
+      </tbody>
+    </table>
+    <button id="calc">Calculate subtotal</button>
+    <h3 id="subtotal"></h3>
+
+    <script>
+      document.querySelector("#calc").onclick = function() {
+        let price = 0;
+        let productPrice, productQty;
+        
+        document.querySelectorAll(".product").forEach(product => {
+            productPrice = +(product.querySelector(".pu span").innerText)
+            productQty = product.querySelector(".qty input").value
+            price += productPrice * productQty
+        });
+
+        document.querySelector("#subtotal").innerHTML = `Subtotal: ${price}$`
+      };
+    </script>
+  </body>
+</html>
