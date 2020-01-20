@@ -39,14 +39,14 @@
           <td>Roomba hoover</td>
           <td class="pu"><span>200</span>$</td>
           <td class="qty"><input type="number" value="1" /></td>
-          <td></td>
+          <td class="subtotal"></td>
           <td><button>Delete</button></td>
         </tr>
         <tr class="product">
           <td>Roomba hoover</td>
           <td class="pu"><span>300</span>$</td>
           <td class="qty"><input type="number" value="2" /></td>
-          <td></td>
+          <td class="subtotal"></td>
           <td><button>Delete</button></td>
         </tr>
       </tbody>
@@ -57,14 +57,25 @@
     <script>
       document.querySelector("#calc").onclick = function() {
         let price = 0;
-        let productPrice, productQty;
+        let productPrice, productQty, rowSubtotal;
         
+        // let's select all products from the table (they are table rows)
         document.querySelectorAll(".product").forEach(product => {
+            // let's obtain the product price for each line
             productPrice = +(product.querySelector(".pu span").innerText)
+            // let's get the product quantity specified by the user
             productQty = product.querySelector(".qty input").value
-            price += productPrice * productQty
+            // let's calculate the subtotal for this row, multiplying the price by the amount of items
+            rowSubtotal = productPrice * productQty
+            // let's print out the subtotal for this row
+            // by selecting the subtotal field and adding a $ symbol to the computation
+            product.querySelector(".subtotal").innerHTML = `${rowSubtotal}$`
+            // let's add the row subtotal the final price computation
+            // that will be user later on
+            price += rowSubtotal
         });
 
+        // let's print out the final price computation
         document.querySelector("#subtotal").innerHTML = `Subtotal: ${price}$`
       };
     </script>
