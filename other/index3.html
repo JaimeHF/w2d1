@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        h1 span {
+            color: grey;
+        }
+    </style>
+</head>
+<body>
+   
+
+    <script>
+        const randomFloat = (min, max) => Math.random() * (max - min) + min;
+        const randomInt = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);
+        const shuffle = array => array.sort(() => Math.random() - 0.5);
+
+        let h1DOMEl = document.createElement("h1")
+        h1DOMEl.innerHTML = `hola, qué tal `
+        h1DOMEl.style.fontSize = "50px"
+        document.body.appendChild(h1DOMEl)
+
+        let spanDOMEl = document.createElement("span")
+        spanDOMEl.innerHTML = `molas mucho ${randomInt(0, 100)}`
+        h1DOMEl.appendChild(spanDOMEl)
+    </script>
+</body>
+</html>
